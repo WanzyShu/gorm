@@ -8,9 +8,15 @@ import (
 
 // Define callbacks for querying
 func init() {
+	DefaultCallback.Query().Register("gorm:before_query", beforeQueryCallback)
 	DefaultCallback.Query().Register("gorm:query", queryCallback)
 	DefaultCallback.Query().Register("gorm:preload", preloadCallback)
 	DefaultCallback.Query().Register("gorm:after_query", afterQueryCallback)
+}
+
+// custom
+func beforeQueryCallback(scope *Scope) {
+
 }
 
 // queryCallback used to query data from database
